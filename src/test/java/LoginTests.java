@@ -1,4 +1,8 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.WebElementCondition;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -18,18 +22,21 @@ public class LoginTests {
         open(url);
     }
 
+    @AfterEach
+    void tearDown() {
+        WebDriverRunner.closeWebDriver();
+    }
+
     @Test
     void successfulAuth() {
 
-        Configuration.holdBrowserOpen = true;
+//        Configuration.holdBrowserOpen = true;
 
         $("[class=ms-2]").click();
         $("[id=user-auth-login-email]").setValue("onboarding306@gmail.com");
         $("[id=user-auth-login-password").setValue("Aw1ad2as3");
         $("[id=user-auth-login-button]").click();
-
-
+        $("[id=header-deposit-bid]").shouldBe(Condition.visible);
     }
-
 
 }
