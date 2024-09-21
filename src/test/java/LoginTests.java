@@ -30,8 +30,6 @@ public class LoginTests {
     @Test
     void successfulAuth() {
 
-//        Configuration.holdBrowserOpen = true;
-
         $("[class=ms-2]").click();
         $("[id=user-auth-login-email]").setValue("onboarding306@gmail.com");
         $("[id=user-auth-login-password").setValue("Aw1ad2as3");
