@@ -28,13 +28,47 @@ public class LoginTests {
     }
 
     @Test
-    void successfulAuth() {
+    void successfulAuthEmaiPass() {
 
         $("[class=ms-2]").click();
         $("[id=user-auth-login-email]").setValue("onboarding306@gmail.com");
         $("[id=user-auth-login-password").setValue("Aw1ad2as3");
         $("[id=user-auth-login-button]").click();
+
         $("[id=header-deposit-bid]").shouldBe(Condition.visible);
     }
 
+    @Test
+    void loginWithoutPass() {
+
+        $("[class=ms-2]").click();
+        $("[id=user-auth-login-email]").setValue("onboarding306@gmail.com");
+        $("[id=user-auth-login-password").setValue("");
+        $("[id=user-auth-login-button]").click();
+
+        $("[id=user-auth-login-password-error]").shouldHave(Condition.text("Please fill your password."));
+    }
+
+    @Test
+    void loginWithoutEmail() {
+
+        $("[class=ms-2]").click();
+        $("[id=user-auth-login-email]").setValue("");
+        $("[id=user-auth-login-password").setValue("Aw1ad2as3");
+        $("[id=user-auth-login-button]").click();
+
+        $("[id=user-auth-login-email-error]").shouldHave(Condition.text("Please fill your email."));
+    }
+
+    @Test
+    void loginWithEmptyFields() {
+
+        $("[class=ms-2]").click();
+        $("[id=user-auth-login-email]").setValue("");
+        $("[id=user-auth-login-password").setValue("");
+        $("[id=user-auth-login-button]").click();
+
+        $("[id=user-auth-login-email-error]").shouldHave(Condition.text("Please fill your email."));
+        $("[id=user-auth-login-password-error]").shouldHave(Condition.text("Please fill your password."));
+    }
 }
