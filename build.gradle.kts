@@ -14,8 +14,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("com.codeborne:selenide:7.5.0")
     implementation("io.github.bonigarcia:webdrivermanager:5.3.0")
-}
+
 
 tasks.test {
     useJUnitPlatform()
-}
+}}
