@@ -30,45 +30,56 @@ public class LoginTests {
     @Test
     void successfulAuthEmaiPass() {
 
-        $("[class=ms-2]").click();
-        $("[id=user-auth-login-email]").setValue("onboarding306@gmail.com");
-        $("[id=user-auth-login-password").setValue("Aw1ad2as3");
-        $("[id=user-auth-login-button]").click();
+        $(".ms-2").click();
+        $("#user-auth-login-email").setValue("onboarding306@gmail.com");
+        $("#user-auth-login-password").setValue("Aw1ad2as3");
+        $("#user-auth-login-button").click();
 
-        $("[id=header-deposit-bid]").shouldBe(Condition.visible);
+        $("#header-deposit-bid").shouldBe(Condition.visible);
     }
 
     @Test
     void loginWithoutPass() {
 
-        $("[class=ms-2]").click();
-        $("[id=user-auth-login-email]").setValue("onboarding306@gmail.com");
-        $("[id=user-auth-login-password").setValue("");
-        $("[id=user-auth-login-button]").click();
+        $(".ms-2").click();
+        $("#user-auth-login-email").setValue("onboarding306@gmail.com");
+        $("#user-auth-login-password").setValue("");
+        $("#user-auth-login-button").click();
 
-        $("[id=user-auth-login-password-error]").shouldHave(Condition.text("Please fill your password."));
+        $("#user-auth-login-password-error").shouldHave(Condition.text("Please fill your password."));
     }
 
     @Test
     void loginWithoutEmail() {
 
-        $("[class=ms-2]").click();
-        $("[id=user-auth-login-email]").setValue("");
-        $("[id=user-auth-login-password").setValue("Aw1ad2as3");
-        $("[id=user-auth-login-button]").click();
+        $(".ms-2").click();
+        $("#user-auth-login-email").setValue("");
+        $("#user-auth-login-password").setValue("Aw1ad2as3");
+        $("#user-auth-login-button").click();
 
-        $("[id=user-auth-login-email-error]").shouldHave(Condition.text("Please fill your email."));
+        $("#user-auth-login-email-error").shouldHave(Condition.text("Please fill your email."));
     }
 
     @Test
     void loginWithEmptyFields() {
 
-        $("[class=ms-2]").click();
-        $("[id=user-auth-login-email]").setValue("");
-        $("[id=user-auth-login-password").setValue("");
-        $("[id=user-auth-login-button]").click();
+        $(".ms-2").click();
+        $("#user-auth-login-email").setValue("");
+        $("#user-auth-login-password").setValue("");
+        $("#user-auth-login-button").click();
 
-        $("[id=user-auth-login-email-error]").shouldHave(Condition.text("Please fill your email."));
-        $("[id=user-auth-login-password-error]").shouldHave(Condition.text("Please fill your password."));
+        $("#user-auth-login-email-error").shouldHave(Condition.text("Please fill your email."));
+        $("#user-auth-login-password-error").shouldHave(Condition.text("Please fill your password."));
+    }
+
+    @Test
+    void loginEmailAndWrongPass() {
+
+        $(".ms-2").click();
+        $("#user-auth-login-email").setValue("onboarding306@gmail.com");
+        $("#user-auth-login-password").setValue("2456gftdhE__::");
+        $("#user-auth-login-button").click();
+
+        $("#user-auth-login-password-error").shouldHave(Condition.text("Incorrect email or password."));
     }
 }
