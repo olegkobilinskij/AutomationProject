@@ -37,7 +37,7 @@ public class SearchTests {
     void successfulLotNumberSearch(){
         $("#navbar-search-1").click();
         $("#navbar-search-1").setValue("38669822");
-        $(".me-sm-2").click();
+        $(".me-sm-2").pressEnter();
         $(".order-lg-last").shouldHave(text("2006 Toyota Tacoma"));
     }
 
@@ -45,7 +45,7 @@ public class SearchTests {
     void successfulNameCarSearch(){
         $("#navbar-search-1");
         $("#navbar-search-1").setValue("Toyota Tacoma");
-        $(".me-sm-2").click();
+        $(".me-sm-2").pressEnter();
         $("button.link").shouldHave(text("Toyota Tacoma"));
     }
 
@@ -53,7 +53,7 @@ public class SearchTests {
     void successSearchWithTub(){
         $("#navbar-search-1");
         $("#navbar-search-1").setValue("    5TEJU62N36Z226840   ");
-        $(".me-sm-2").click();
+        $(".me-sm-2").pressEnter();
         $(".order-lg-last").shouldHave(text("Toyota Tacoma"));
     }
 
@@ -61,7 +61,7 @@ public class SearchTests {
     void successSearchWithSpace(){
         $("#navbar-search-1");
         $("#navbar-search-1").setValue(" 5TEJU62N36Z226840 ");
-        $(".me-sm-2").click();
+        $(".me-sm-2").pressEnter();
         $(".order-lg-last").shouldHave(text("Toyota Tacoma"));
     }
 }
