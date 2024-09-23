@@ -47,13 +47,57 @@ public class LoginFormTests {
         void forgotYourPassBackToSignin(){
             $(".ms-2").click();
             $("#user-auth-login-caller-reset").click();
-//            $("#user-auth-reset-email").setValue("onboarding24@gmail.com");
             $("#user-auth-reset-caller-login").click();
 
             $("#user-auth-login-area").shouldBe(Condition.visible);
 
 
     }
+    @Test
+        void goToRegForm(){
+            $(".ms-2").click();
+            $("#user-auth-login-area").shouldBe(Condition.visible);
+            $("#user-auth-login-caller-register").click();
+            $("#user-auth-register-area").shouldBe(Condition.visible);
+    }
 
-
+    @Test
+        void clickOnTheX(){
+            $(".ms-2").click();
+            $("#user-auth-login-area").shouldBe(Condition.visible);
+            $(".btn-close").click();
+            $("#user-auth-login-area").shouldNotBe(Condition.visible);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
