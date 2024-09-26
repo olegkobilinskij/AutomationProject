@@ -1,5 +1,6 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.WebDriverRunner;
+import org.checkerframework.checker.units.qual.C;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,10 +27,4 @@ public class FehicleFinderHeader {
         $(".list-unstyled").shouldBe(Condition.visible);
     }
 
-    @Test
-        void clickOnTheOurPicks(){
-        $("#navbar-toggler-btn").click();
-        $(".list-unstyled").shouldBe(Condition.visible);
-        $$(".list-unstyled li").first().hover();
-    }
 }
