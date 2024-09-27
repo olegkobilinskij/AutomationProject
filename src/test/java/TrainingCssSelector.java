@@ -47,6 +47,6 @@ public class TrainingCssSelector {
 //            checkbox.click(); // кликаем, чтобы установить флажок
 //        }
 //        checkbox.shouldBe(Condition.selected); // проверяем, что чекбокс выбран
-//    }
+//    }jjjjjjj
 
 }
